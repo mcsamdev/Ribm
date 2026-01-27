@@ -1,0 +1,12 @@
+[package]
+name = "ribm"
+version = "0.1.0"
+edition = "2024"
+repository = "https://github.com/mcsamdev/Ribm"
+readme = "README.md"
+license = "MIT"
+description = "An IEEE 754-2019 compliant libm implementation"
+keywords = ["libm", "math", "floating-point", "numerics"]
+categories = ["mathematics", "science", "algorithms"]
+
+[dependencies]
