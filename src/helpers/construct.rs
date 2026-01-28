@@ -1,3 +1,5 @@
+//! The file for constructing floating-point numbers from their unpacked components.
+
 use super::consts::{
     DBL_EXP_ALL_ONES, DBL_EXP_SHIFT, DBL_FRAC_MASK, DBL_SIGN_NEG, DBL_SIGN_SHIFT, FLT_EXP_ALL_ONES,
     FLT_EXP_SHIFT, FLT_FRAC_MASK, FLT_SIGN_NEG, FLT_SIGN_SHIFT,

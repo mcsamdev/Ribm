@@ -1,6 +1,9 @@
+//! The file for extracting components from floating-point numbers.
+
 use super::consts::{
-    DBL_EXP_BIAS, DBL_EXP_MASK, DBL_EXP_SHIFT, DBL_SIGN_MASK, DBL_SIGN_SHIFT, FLT_EXP_BIAS,
-    FLT_EXP_MASK, FLT_EXP_SHIFT, FLT_FRAC_MASK, FLT_FRAC_SHIFT, FLT_SIGN_MASK, FLT_SIGN_SHIFT,
+    DBL_EXP_BIAS, DBL_EXP_MASK, DBL_EXP_SHIFT, DBL_FRAC_MASK, DBL_FRAC_SHIFT, DBL_SIGN_MASK,
+    DBL_SIGN_SHIFT, FLT_EXP_BIAS, FLT_EXP_MASK, FLT_EXP_SHIFT, FLT_FRAC_MASK, FLT_FRAC_SHIFT,
+    FLT_SIGN_MASK, FLT_SIGN_SHIFT,
 };
 
 /// Extracts the sign bit from the raw bit representation of a 32-bit floating-point number.
@@ -368,4 +371,16 @@ pub const fn f64_get_unbiased_exp_from_bits(bits: u64) -> i64 {
 #[inline]
 pub const fn f64_get_unbiased_exp(f: f64) -> i64 {
     f64_get_unbiased_exp_from_bits(f.to_bits())
+}
+
+#[must_use]
+#[inline]
+pub const fn f64_get_frac_from_bits(bits: u64) -> u64 {
+    (bits & DBL_FRAC_MASK) >> DBL_FRAC_SHIFT
+}
+
+#[must_use]
+#[inline]
+pub const fn f64_get_frac(f: f64) -> u64 {
+    f64_get_frac_from_bits(f.to_bits())
 }
